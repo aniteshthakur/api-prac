@@ -1,25 +1,47 @@
-import logo from './logo.svg';
-import './App.css';
+import React,{useEffect,useState} from 'react'
+import axios from 'axios'
 
-function App() {
+
+const App = () => {
+  const [people,setPeople]=useState([])
+  const [counter,setCounter]=useState(0)
+  const getData=()=>{
+    axios.get("https://randomuser.me/api/?results=20").then((res) => {
+      const data=res.data.results;
+      setPeople(data);
+      console.log(data)
+      
+    }).catch((err) => {
+      console.log(err);
+    })
+  }
+  const counterHandler=()=>{
+    setCounter(counter +1)
+    console.log(counter)
+  }
+  useEffect(() => {
+    getData()
+  }, []);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div >
+      <h1>Everything you need</h1>
+      <h1>{counter}</h1>
+      <button onClick={counterHandler}>Increment</button>
+      <table>
+        <tr>
+          <th>Location</th>
+        </tr>
+        {people.map(person=>{
+          return (
+            <tr>
+              <td>{JSON.stringify(person.location)}</td>
+            </tr>
+          );
+        })}
+        
+      </table>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
