@@ -1,5 +1,6 @@
 import React,{useEffect,useState} from 'react'
 import axios from 'axios'
+import Add from './Add'
 
 
 const App = () => {
@@ -27,6 +28,7 @@ const App = () => {
       <h1>Everything you need</h1>
       <h1>{counter}</h1>
       <button onClick={counterHandler}>Increment</button>
+      <Add />
       <table>
         <tr>
           <th>Location</th>
@@ -40,6 +42,7 @@ const App = () => {
         })}
         
       </table>
+
     </div>
   )
 }
