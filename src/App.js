@@ -1,6 +1,7 @@
 import React,{useEffect,useState} from 'react'
 import axios from 'axios'
 import Add from './Add'
+import Sub from './Sub'
 
 
 const App = () => {
@@ -29,6 +30,7 @@ const App = () => {
       <h1>{counter}</h1>
       <button onClick={counterHandler}>Increment</button>
       <Add />
+      <Sub />
       <table>
         <tr>
           <th>Location</th>
