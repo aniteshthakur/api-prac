@@ -2,7 +2,7 @@ import React,{useEffect,useState} from 'react'
 import axios from 'axios'
 import Add from './Add'
 import Multiply from './Multiply'
-
+import Sub from './Sub'
 
 const App = () => {
   const [people,setPeople]=useState([])
@@ -31,6 +31,7 @@ const App = () => {
       <button onClick={counterHandler}>Increment</button>
       <Add />
       <Multiply />
+      <Sub />
       <table>
         <tr>
           <th>Location</th>
